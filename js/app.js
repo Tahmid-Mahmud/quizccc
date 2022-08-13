@@ -162,3 +162,4 @@ function prev() {
     }
     else { setquiz(tnum.innerHTML) }
 }
+

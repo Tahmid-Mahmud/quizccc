@@ -152,7 +152,16 @@ function next() {
 
 }
 function prev() {
+    let ele = document.getElementsByName('quizz');
+    let el = document.getElementsByName('answer5');
     let tnum = document.getElementById('num');
+
+    for (i = 0; i < el.length; i++) {
+        if (el[i].checked) {
+            el[i].checked = false;
+        }
+    }
+    
     if (tnum.innerHTML > 1) tnum.innerHTML = parseInt(tnum.innerHTML) - 1;
     if (finish) {
         ele[0].style.border = "1px solid grey";

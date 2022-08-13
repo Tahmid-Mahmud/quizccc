@@ -26,6 +26,7 @@ function ready() {
 var elem = document.getElementById('msec');
 var el=document.getElementsByName("answer5")
 function setquiz(num) {
+    let el=document.getElementsByName("answer5");
     console.log(num)
     
     // firebase.database().ref('quiz').on('value', (a)=>{console.log(a.val().1)})
@@ -35,9 +36,8 @@ function setquiz(num) {
         for (let i = 1; i < 5; i++) {
             document.getElementById(i).innerHTML = array[i - 1];
         }
-
+        el[localStorage.getItem(num)].checked=true;
     })
-    el[localStorage.getItem(num)].checked=true;
 }
 
 

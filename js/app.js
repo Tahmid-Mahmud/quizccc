@@ -37,6 +37,7 @@ function setquiz(num) {
         }
 
     })
+    el[localStorage.getItem(num)].checked=true;
 }
 
 

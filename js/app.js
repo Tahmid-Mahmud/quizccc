@@ -36,7 +36,7 @@ function setquiz(num) {
         for (let i = 1; i < 5; i++) {
             document.getElementById(i).innerHTML = array[i - 1];
         }
-        el[localStorage.getItem(num)].checked=true;
+//         el[localStorage.getItem(num)].checked=true;
     })
 }
 

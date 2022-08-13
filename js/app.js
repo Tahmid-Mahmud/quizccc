@@ -135,7 +135,7 @@ function save(id) {
 
 
 function next() {
-    let ele = document.getElementsByName('answer5');
+    let ele = document.getElementsByName('quizz');
     let tnum = document.getElementById('num');
     for (i = 0; i < ele.length; i++) {
         if (ele[i].checked) {

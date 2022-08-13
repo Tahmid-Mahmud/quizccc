@@ -24,23 +24,17 @@ function ready() {
 }
 
 var elem = document.getElementById('msec');
-
+var el=document.getElementsByName("answer5")
 function setquiz(num) {
     console.log(num)
+    
     // firebase.database().ref('quiz').on('value', (a)=>{console.log(a.val().1)})
     db.child(num).once('value', (a) => {
         document.getElementById("ques").innerHTML = a.val().q;
         let array = a.val().opt.split(',');
         for (let i = 1; i < 5; i++) {
             document.getElementById(i).innerHTML = array[i - 1];
-
         }
-
-        // for (i = 0; i < ele.length; i++) {
-        //     if (ele[i].checked) {
-        //         localStorage.setItem(num, )
-        //     }
-        // }
 
     })
 }
@@ -57,6 +51,7 @@ function compile(num) {
             // console.log(document.querySelector('input[name="answer5"]:checked').innerHTML)
 
         }
+        el[localStorage.getItem(num)].checked=true;
         ele[a.val().ans].style.border = "3px solid green";
         // console.log(array[a.val().ans])
         // console.log(document.querySelector('input[name="answer5"]:checked').innerHTML)
@@ -136,10 +131,11 @@ function save(id) {
 
 function next() {
     let ele = document.getElementsByName('quizz');
+    let el = document.getElementsByName('answer5');
     let tnum = document.getElementById('num');
-    for (i = 0; i < ele.length; i++) {
-        if (ele[i].checked) {
-            ele[i].checked = false;
+    for (i = 0; i < el.length; i++) {
+        if (el[i].checked) {
+            el[i].checked = false;
         }
     }
     tnum.innerHTML = parseInt(tnum.innerHTML) + 1;
@@ -166,4 +162,3 @@ function prev() {
     }
     else { setquiz(tnum.innerHTML) }
 }
-
